@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title><% title %></title>
+    <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.css">
+</head>
+<body>
+    <div class="container">
+        <% if ( user ) { %>
+            <a href="/signout">Sign out</a>
+        <% } else { %>
+            <a href="/signup">Sign up</a>
+            <a href="/signin">Sign in</a>
+        <% } %>
+
+        <section ng-view></section>
+
+    </div>
+
+    <script>
+        window.user = <%- user || 'null'%>;
+    </script>
+
+    <!-- angular files -->
+    <script src="/lib/angular/angular.js"></script>
+    <script src="/lib/angular-route/angular-route.js"></script>
+
+    <!-- example module -->
+    <script src="/example/example.client.module.js"></script>
+    <script src="/example/controllers/example.client.controller.js"></script>
+    <script src="/example/config/example.client.routes.js"></script>
+
+    <!-- users module -->
+    <script src="/users/users.client.module.js"></script>
+    <script src="/users/services/authentication.client.service.js"></script>
+
+    <!-- bootstrap main module -->
+    <script src="/application.js"></script>
+</body>
+</html>
